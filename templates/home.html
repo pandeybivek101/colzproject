@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{%block content%}
+	{% if user.is_authenticated %}
+	    <a href="{%url 'logoutuser'%}">logout</a>
+	    <p>welcome {{user.username}}</p>
+	{%else%}
+	    <a href="{%url 'loginuser'%}">login</a>
+	    <a href="{%url 'registeruser'%}">Register</a>
+	    <p>please login to obtain full access</p>
+	{%endif%}
+{%endblock%}

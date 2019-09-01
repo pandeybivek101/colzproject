@@ -1,0 +1,89 @@
+body{ width: 100%}
+
+/*setting global font size*/
+body,.form-control{font-size: 14px;}
+
+input{
+	padding: 6px;
+
+}
+
+/*.btn{
+	padding-left: 50px;
+	padding-right: 52px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	background: steelblue;
+	color:white;
+}*/
+
+/*p{
+	display:inline-block;
+}*/
+.login-page{
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/static/images/kk.jpg");
+	background-size: cover ; 
+	padding-top: 10%;
+}
+.login-page h1{
+	letter-spacing: 1px;
+	text-align:center;
+	color:blue;
+	font-size: 35x;
+	
+	
+	margin-top: 25px;
+}
+.label label{
+	font-size: 20px;
+	color:white; 
+}
+.label small{
+	color:white; 
+}
+.p-2 a{
+	color: white;
+}
+.login-page form{
+	text-align: center;
+	background-color: rgba(255,255,255,0.2);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		height: 100%;
+	margin-bottom: 25px;
+	
+}
+.row{
+	margin-top: 25px;
+}
+.sign{
+	margin-top:15px; 
+	letter-spacing: 1px;
+	font-family:bold;
+	font-size: 15px;
+}
+.password{
+	margin-top: 20px;
+	margin-bottom: 25px;
+	font-family: bold;
+}
+.login{
+	font-family: bold;
+	letter-spacing: 1px;
+}
+.btn{
+
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.login-page h3{
+	color: blue;
+}
+.col-lg-4 h1{
+	color: black;
+	margin-top: 146px;	
+}
+
+.form-text text-muted{
+	font-weight: bold;
+	color: white;
+	
+}

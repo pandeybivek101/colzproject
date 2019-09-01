@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{%load static%}
+{%block content%}
+	<form method="POST" class="p-2" action="{%url 'loginuser'%}">
+		{% csrf_token %}
+		<div class="form-group label">
+		{{form|crispy}}
+	</div>
+		<button class="btn btn-primary btn-block mt-4">Login</button>
+	<a href="{% url 'password_reset' %} ">Forgot Your Password?</a><br>
+	<a href="{% url 'registeruser' %}">Create New Account ?</a><br>
+	<!-- <p>OR login with</p>
+	<a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'facebook.png' %}" height=40 weidth=40></a>
+	<a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'google-plus.png' %}" height=40 weidth=40></a> -->
+	</form>
+	
+{%endblock%}

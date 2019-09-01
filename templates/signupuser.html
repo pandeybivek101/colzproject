@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags %}
+{%block content%}
+{{forms.errors}}
+	<div class="online-w3l-form">
+      <div class="appointment-w3">
+		<form method="POST" class="p-2" action="{% url 'registeruser' %}">
+			<div class="main">
+			{% csrf_token %}
+			<div class="form-group label">
+			{{form|crispy}}
+			</div>
+			<button class="btn btn-primary">Register</button>
+			<a href="{% url 'loginuser' %}">Already Have An Account ?</a>
+		</div>
+		</form>
+	  </div>
+	</div>
+		
+{%endblock%}
+
