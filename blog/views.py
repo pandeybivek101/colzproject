@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from django.http import Http404
 from django.http import *
 from .models import Destination
 from django.db.models import Q
@@ -10,7 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy, reverse
 from django.db.models import Q
 from account.models import UserHistory
-
+import random
+#good
 #filter places radio TextInput
 def FilterPlacesRadioInput(send):
     places = Destination.objects.filter(
@@ -23,18 +23,23 @@ def FilterPlacesRadioInput(send):
 
 
 def ApplyCosineSimi(cosine_para, places):
-    #print(cosine_para)
     allnumlist = [int(x) for x in cosine_para]
-    print(allnumlist)
+    # print(allnumlist)
     data = Destination.objects.filter(title__in = places)
-    result1=[]
+    cosdata=[]
+    places=[]
+    cosresult=[]
     for d in data:
         place = [d.temperature, d.difficulty, d.security]
-        #print(place)
         result = (1 - spatial.distance.cosine(place, allnumlist)) * 100
-        result1.append(float("{0:.2f}".format(result)))
-    #print(result1)
-    return result1
+        if(result>95):
+            cosdata.append(float("{0:.1f}".format(result)))
+            places.append(d.title)
+
+    cosresult.append(cosdata)
+    cosresult.append(places)
+
+    return cosresult
 
 def HomePage(request):
     return render(request, 'blog/index.html',{'title':"GO Travellers | Home"})
@@ -49,6 +54,7 @@ def PostDetails(request, id):
 def Recommendation(request):
     form = DurationForm()
     return render(request, 'blog/recommendation.html', {'form': form})
+
 
 
 def r_result(request):
@@ -131,7 +137,6 @@ def r_result(request):
             return HttpResponseRedirect('/recommendation/')
 
 
-import random
 @login_required
 def Search(request):
     userid = request.user.id
